@@ -54,7 +54,7 @@ To enable `electron-updater`, you need to make the following modifications in yo
 
 Include the following `build` field in your `package.json`:
 
-```json
+**json**
 "build": {
   "appId": "com.example.yourapp",
   "productName": "YourAppName",
