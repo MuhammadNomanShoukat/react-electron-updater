@@ -8,6 +8,7 @@ This document provides the steps to integrate and use `electron-updater` in an E
 
 - [Introduction](#introduction)
 - [Steps to Integrate](#steps-to-integrate)
+- [Modifying `package.json`](#modifying-packagejson)
 - [Uploading Release Files to GitHub](#uploading-release-files-to-github)
 - [Best Practices](#best-practices)
 - [Resources](#resources)
@@ -42,6 +43,35 @@ The `electron-updater` package allows you to implement automatic and manual upda
 
 7. **Deploy and Host Updates**  
    - Host your update files on a secure platform like GitHub Releases.
+
+---
+
+## Modifying `package.json`
+
+To enable `electron-updater`, you need to make the following modifications in your `package.json` file:
+
+### 1. Add `build` Configuration
+
+Include the following `build` field in your `package.json`:
+
+```json
+"build": {
+  "appId": "com.example.yourapp",
+  "productName": "YourAppName",
+  "directories": {
+    "output": "dist"
+  },
+  "files": [
+    "build/**/*",
+    "node_modules/**/*",
+    "package.json"
+  ],
+  "publish": {
+    "provider": "github",
+    "owner": "YourGitHubUsername",
+    "repo": "YourRepositoryName"
+  }
+}
 
 ---
 
